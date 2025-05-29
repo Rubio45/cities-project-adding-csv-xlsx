@@ -49,6 +49,8 @@ class CityImportController extends Controller
             'updated_at' => now(),
         ]);
     }
-    return redirect()->back()->with('success', 'Ciudades importadas correctamente.');
+
+    return redirect(route('cities.index'))->with('success', 'Ciudades importadas correctamente.');
+    return redirect()->back()->withErrors(['Error al importar las ciudades. Por favor, verifica el formato del archivo.']);
 }
 }
